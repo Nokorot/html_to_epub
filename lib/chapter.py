@@ -3,6 +3,8 @@ from lxml.etree import tostring
 from ebooklib import epub
 import uuid, logging
 
+from urllib.parse import urljoin
+
 from .util import Network
 
 '''
@@ -78,6 +80,7 @@ class Chapter:
         url = self.callbacks.chapter_next_callback(match(self.tree))
         
         if url is not None:
+            url = urljoin(self.url, url)
             self.next = Chapter(url ,self.config, self.callbacks)
 
         return self.next

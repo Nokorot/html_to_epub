@@ -27,7 +27,7 @@ class Config:
     def __init__(self, filename, debug=False, toc_break=False):
         logging.getLogger().debug('Loading yaml config ' + filename)
         with open(filename, 'r') as ymlfile:
-            config = yaml.load(ymlfile)
+            config = yaml.safe_load(ymlfile)
 
         self.book = BookConfig(config['book'])
         self.cache = config['cache']
