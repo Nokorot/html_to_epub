@@ -2,6 +2,28 @@ from abc import ABCMeta, abstractmethod
 from lxml.etree import tostring
 import logging
 
+
+'''
+dynamically load the Callbacks class. If it is provided in the user's config.yaml we
+import the custom module, otherwise we create a normal Callbacks class.
+
+Returns the class contructor, does not actually instantiate the object
+'''
+def get_callback_class(callback_config_str):
+    if callback_config_str is not None:
+        package = '.'.join(callback_config_str.split('.')[:-1])
+        class_name = callback_config_str.split('.')[-1]
+        mod = __import__(package, fromlist=[class_name])
+    else:
+        mod = __import__('lib.callbacks', fromlist=['Callbacks'])
+        class_name = 'Callbacks'
+
+    return getattr(mod, class_name)
+
+
+
+
+
 '''
 Base class used to implement custom callbacks when parsing html. If you cannot identify exactly what you want in a css selector
 you can override any and all of these methods to apply custom python logic when scraping html. I tried to apply sensible defaults
@@ -29,6 +51,8 @@ class Callbacks(object, metaclass=ABCMeta):
         string - The section this chapter should be grouped under in the table of contents in string format
     '''
     def chapter_section_callback(self, selector_matches):
+        if not selector_matches:
+            return "no_section"
         return selector_matches[0].text
 
     '''

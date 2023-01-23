@@ -17,18 +17,17 @@ class Network:
         return url
 
     @staticmethod
-    def cache_filename(cache_dir, url):
-        return os.path.join(cache_dir, hashlib.md5(url.encode('utf-8')).hexdigest()+'.html')
+    def cache_filename(cache_dir, url, fileext='.html'):
+        return os.path.join(cache_dir, hashlib.md5(url.encode('utf-8')).hexdigest()+fileext)
 
     @staticmethod
-    def load_and_cache_html(url, cache_filename):
-        
+    def load_and_cache(url, cache_filename, ignore_cache=False, mode='rb'):
         print(f"Load '{url}'");
 
-
-        if not os.path.isfile(cache_filename):
+        if ignore_cache or (not os.path.isfile(cache_filename)):
             logging.getLogger().debug('Cache miss - Downloading ' + url + ' to ' + cache_filename)
-            
+         
+            # TODO: This is the wrong place to have this
             hdrs = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
                    'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
@@ -38,13 +37,18 @@ class Network:
             req = Request(url, headers=hdrs)
     
             response = urlopen(req)
-            content = response.read().decode('utf-8', 'ignore')
+            content = response.read()
             response.close()
 
-            with open(cache_filename, 'w') as f:
+            with open(cache_filename, 'wb') as f:
                 f.write(content)
+        return open(cache_filename, mode)
 
-        logging.getLogger().debug('Loading html dom from ' + cache_filename)
 
-        with open(cache_filename, 'r') as f:
-            return lxml.html.fromstring(f.read())
+
+    @staticmethod
+    def load_and_cache_html(url, cache_filename, ignore_cache=False):
+        with Network.load_and_cache(url, cache_filename, ignore_cache, 'r') as f:
+            logging.getLogger().debug('Loading html dom from ' + cache_filename)
+
+            return lxml.html.fromstring(f.read()) # .decode('utf-8', 'ignore')

@@ -3,10 +3,12 @@ from lib.book import Book
 from lib.chapter import Chapter
 from lib.config import Config
 import optparse, os, traceback, shutil, logging, sys
+from lib.callbacks import get_callback_class
 
 def parse_options():
     parser = optparse.OptionParser()
-    parser.add_option('-c', '--clear-cache', dest='clear', default = False, action = 'store_true', help='Set to download a local copy of the website, clears local cache if it exists')
+    parser.add_option('-c', '--clear-cache', dest='clear', default = False, action = 'store_true', help='Clears all local cache files, before loading the entry-pont webpage')
+    parser.add_option('-i', '--ignore-cache', dest='ignore', default = False, action = 'store_true', help='Ignore all local cache files, when loading the files. Instead download an up-to-date version from the website and overwriting the cache if it exists.')
     parser.add_option('--config', dest='config', help='yaml config file')
     parser.add_option('-d', '--debug', dest='debug', default=False, action='store_true', help='enable debug output')
     parser.add_option('--toc-break', dest='toc_break', default=False, action='store_true', help='Only parse table of contents, useful when debugging a new web site')
@@ -29,22 +31,6 @@ def setup_logger(debug):
     ch.setFormatter(formatter)
     root.addHandler(ch)
 
-'''
-dynamically load the Callbacks class. If it is provided in the user's config.yaml we
-import the custom module, otherwise we create a normal Callbacks class.
-
-Returns the class contructor, does not actually instantiate the object
-'''
-def get_callback_class(callback_config_str):
-    if callback_config_str is not None:
-        package = '.'.join(callback_config_str.split('.')[:-1])
-        class_name = callback_config_str.split('.')[-1]
-        mod = __import__(package, fromlist=[class_name])
-    else:
-        mod = __import__('lib.callbacks', fromlist=['Callbacks'])
-        class_name = 'Callbacks'
-
-    return getattr(mod, class_name)
 
 if __name__ == '__main__':
     (options, args) = parse_options()
@@ -52,6 +38,7 @@ if __name__ == '__main__':
     setup_logger(options.debug)
 
     config = Config(options.config, options.debug, options.toc_break)
+    config.ignore_cache = options.ignore;
     logging.getLogger().info(str(config))
 
     if options.clear and os.path.exists(config.cache):
@@ -65,6 +52,10 @@ if __name__ == '__main__':
     book.load_html()
 
     try:
-        epub.write_epub(config.book.epub_filename, book.generate_epub(), {})
+        fn = config.book.epub_filename
+        epub_f = book.generate_epub()
+        print(fn)
+        
+        epub.write_epub(fn, epub_f, {})
     except Exception as e:
         print(traceback.format_exc())

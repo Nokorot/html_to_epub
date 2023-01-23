@@ -7,6 +7,7 @@ from urllib.parse import urljoin
 
 from .util import Network
 
+
 '''
 Chapter class - parses a web page for the chapter's title, ToC section and chapter text.
                 Also responsible for turning this into an epub.EpubHtml object
@@ -32,7 +33,7 @@ class Chapter:
     Cache (if necessary) and load html dom into memory
     '''
     def load_html(self):
-        self.tree = Network.load_and_cache_html(self.url, self.cache_filename)
+        self.tree = Network.load_and_cache_html(self.url, self.cache_filename, self.config.ignore_cache)
 
         # initalize chapter fields in case __str__ is called
         self.get_title()
@@ -47,6 +48,9 @@ class Chapter:
     Parse the chapter title from the dom
     '''
     def get_title(self):
+        if not self.config.book.chapter.title_css_selector:
+            # TODO: Fix
+            return "Title" 
         match = CSSSelector(self.config.book.chapter.title_css_selector)
         self.title = self.callbacks.chapter_title_callback(match(self.tree))
     
@@ -91,9 +95,15 @@ class Chapter:
     TODO: this should be optional
     '''
     def get_epub_section(self):
-        match = CSSSelector(self.config.book.chapter.section_css_selector)
+        if self.epub_section:
+            return self.epub_section
 
-        self.epub_section = self.callbacks.chapter_section_callback(match(self.tree))
+        if not self.config.book.chapter.section_css_selector:
+            self.epub_section = self.callbacks.chapter_section_callback(None)
+            return self.epub_section
+        else:
+            match = CSSSelector(self.config.book.chapter.section_css_selector)
+            self.epub_section = self.callbacks.chapter_section_callback(match(self.tree))
 
         return self.epub_section
 
@@ -109,6 +119,9 @@ class Chapter:
         remove = [' ', '#', '\t', ':', ' '] #the last one isnt a normal space...
         for c in remove:
             title = title.replace(c, '_')
+        for c in '!?+/':
+            title = title.replace(c, '')
+
 
         self.epub_filename = title + '.xhtml'
         return self.epub_filename

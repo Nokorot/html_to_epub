@@ -4,6 +4,7 @@ from tqdm import tqdm
 import pickle, uuid, logging
 
 from .chapter import Chapter
+from .image import Image
 
 '''
 Book class - handles most of the epub stuff as well as initalizing TableOfContents and Chapters 
@@ -16,8 +17,41 @@ class Book:
         self.title = config.book.title
         self.author = config.book.author
 
+        callbacks.book = self
+
+        print(config.book.cover_img)
+        if config.book.cover_img:
+            # TODO: This ext should not be hard coded here
+            self.cover_img = Image(config, "cover", config.book.cover_img, ext='.png')
+        else:
+            self.cover_img = None
+
+        self.images = {}
+        for (key, value) in config.book.images.items():
+            self.add_image(value, key)
+
         with open(config.book.css_filename, 'r') as css:
             self.css = epub.EpubItem(uid='default', file_name="style/"+config.book.css_filename, media_type="text/css", content=css.read())
+
+
+    def add_image(self, url, ref=None):
+        if not ref:
+            # TODO: This could be more clever
+            ref = "image_%u" % len(self.images)
+
+        if self.images.get(ref):
+            if self.images[ref].url != url:
+                logging.getLogger().worning("Multiple images with the same refrence '%s'\n\told: '%s'\n\tnew: '%s'<++>" \
+                        % (ref, self.images[ref].url, url))
+            return None
+        self.images[ref] = Image(self.config, ref, url)
+        return self.images[ref]
+
+    def get_image_src(self, ref):
+        img = self.images.get(ref)
+        if img:
+            return img.get_src()
+        return None
 
     '''
     Walks through a web page starting with config.book.entry_point, finding a 'next chapter' link and continueing until
@@ -54,6 +88,7 @@ class Book:
             self.chapters = self.callbacks.sort_chapters(self.chapters)
 
 
+
     # initalizes some basic stuff needed by ebooklib: title, author, css, etc.
     def init_epub(self):
         self.book = epub.EpubBook()
@@ -62,6 +97,11 @@ class Book:
         self.book.set_language('en')
         self.book.add_author(self.author)
         self.book.add_item(self.css)
+
+        if self.cover_img:
+            print("Adding Conver: '%s'" % self.cover_img.ref)
+            data = self.cover_img.load_file()
+            self.book.set_cover(self.cover_img.ref + self.cover_img.fileext, data)
 
     '''
     Turn our TableOfContetns and Chapter objects into epub format. At this point you should have called 
@@ -93,6 +133,21 @@ class Book:
             sections[epub_section].append(epub_chapter)
 
         logging.getLogger().info('Generating table of contents')
+
+        # Load and include all images into the epub
+        for i, (ref, img) in enumerate(self.images.items()):
+            # TODO:3 At the moment I'm expecting ext as a part of key
+            print("Adding Image: '%s'" % ref)
+            data = img.load_file()
+        
+            # TODO: Need to fix the media type, though it seams to work fine also with png atm.
+            img = epub.EpubImage(
+                    uid         = 'image_%u' % (i),
+                    file_name   =  self.config.images_dir + ref,
+                    media_type  = 'image/jpeg',
+                    content     = data)
+            self.book.add_item(img)
+
 
         # TODO: make table of contents section optional
         self.book.toc = [(epub.Section(section), tuple(chapters)) for section, chapters in tqdm(sections.items(), disable=self.config.debug)]
