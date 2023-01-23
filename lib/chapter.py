@@ -12,7 +12,7 @@ from .util import Network
 Chapter class - parses a web page for the chapter's title, ToC section and chapter text.
                 Also responsible for turning this into an epub.EpubHtml object
 '''
-class Chapter:    
+class Chapter:
     def __init__(self, url, config, callbacks):
         self.config = config
         self.callbacks = callbacks
@@ -43,17 +43,17 @@ class Chapter:
         logging.getLogger().debug(self)
 
         return self.tree
-    
+
     '''
     Parse the chapter title from the dom
     '''
     def get_title(self):
         if not self.config.book.chapter.title_css_selector:
             # TODO: Fix
-            return "Title" 
+            return "Title"
         match = CSSSelector(self.config.book.chapter.title_css_selector)
         self.title = self.callbacks.chapter_title_callback(match(self.tree))
-    
+
         return self.title
 
     '''
@@ -72,7 +72,7 @@ class Chapter:
                 #to string will give us the strong representation of the dom, including html markup which the epub can render
                 paragraphs.append(tostring(p, encoding='unicode'))
 
-        
+
         return ''.join(paragraphs)
 
     '''
@@ -82,7 +82,7 @@ class Chapter:
         match = CSSSelector(self.config.book.chapter.next_chapter_css_selector)
 
         url = self.callbacks.chapter_next_callback(match(self.tree))
-        
+
         if url is not None:
             url = urljoin(self.url, url)
             self.next = Chapter(url ,self.config, self.callbacks)
@@ -113,7 +113,7 @@ class Chapter:
     '''
     def get_epub_filename(self):
         title = self.get_title()
-        
+
         # there are some illegal character for epub file names
         # I cant find a list so I update it when I encounter problems
         remove = [' ', '#', '\t', ':', ' '] #the last one isnt a normal space...

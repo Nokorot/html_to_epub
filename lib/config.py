@@ -24,7 +24,7 @@ class BookConfig:
 
         print(yml)
         self.cover_img = yml.get('cover_image', None)
-        
+
         self.images = yml.get('images', {})
 
     def __str__(self):

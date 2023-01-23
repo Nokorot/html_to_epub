@@ -7,7 +7,7 @@ from .chapter import Chapter
 from .image import Image
 
 '''
-Book class - handles most of the epub stuff as well as initalizing TableOfContents and Chapters 
+Book class - handles most of the epub stuff as well as initalizing TableOfContents and Chapters
 '''
 class Book:
     def __init__(self, config, callbacks):
@@ -55,7 +55,7 @@ class Book:
 
     '''
     Walks through a web page starting with config.book.entry_point, finding a 'next chapter' link and continueing until
-    a next chapter link cannot be found. If a web page exists in the cache it will be loaded from the local file, 
+    a next chapter link cannot be found. If a web page exists in the cache it will be loaded from the local file,
     otherwise it will download the web page and then load the dom.
 
     Must be called before generate_epub. Thought of having generate_epub call this but since it does so much (downloading potentially
@@ -104,7 +104,7 @@ class Book:
             self.book.set_cover(self.cover_img.ref + self.cover_img.fileext, data)
 
     '''
-    Turn our TableOfContetns and Chapter objects into epub format. At this point you should have called 
+    Turn our TableOfContetns and Chapter objects into epub format. At this point you should have called
     init_html() or you will get NoneType exceptions because the dom isnt loaded.
     '''
     def generate_epub(self):
@@ -123,7 +123,7 @@ class Book:
             epub_chapter = chapter.to_epub(self.css)
 
             self.book.add_item(epub_chapter)
-            self.book.spine.append(epub_chapter) # the spin is yet another epub navigational thing. theres lots of that. 
+            self.book.spine.append(epub_chapter) # the spin is yet another epub navigational thing. theres lots of that.
 
             # TODO: make table of contents section optional
             epub_section = chapter.get_epub_section()
@@ -139,7 +139,7 @@ class Book:
             # TODO:3 At the moment I'm expecting ext as a part of key
             print("Adding Image: '%s'" % ref)
             data = img.load_file()
-        
+
             # TODO: Need to fix the media type, though it seams to work fine also with png atm.
             img = epub.EpubImage(
                     uid         = 'image_%u' % (i),
