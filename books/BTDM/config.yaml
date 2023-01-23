@@ -1,0 +1,22 @@
+cache: './cache/html/BTDM'
+callbacks: 'books.BTDM.cbs.Callbacks'
+book:
+    title: Beneath The Dragoneye Moon
+    author: Selkie
+    epub_filename: out/BTDM.epub
+    cover_image: 'https://www.royalroadcdn.com/public/covers-large/36299-beneath-the-dragoneye-moons.jpg'
+    css_filename: 'kindle.css'
+    entry_point: 'https://www.royalroad.com/fiction/36299/beneath-the-dragoneye-moons/chapter/765885/dedication'
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    images:
+        sep.png: 'https://www.royalroadcdn.com/public/ornaments/36299-ornament.png'
+
+# These cursom variables, may be refered to in the callback sript.
+#   The 'load_images' flag, inicates whether or not images found in the content 
+#   should be included in the epub.
+custom:
+  load_images: False

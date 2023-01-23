@@ -1,0 +1,19 @@
+cache: './cache/html/AJoBR'
+callbacks: 'books.AJoBR.cbs.Callbacks'
+max_chapter_iterations: 10000
+book:
+    title: A Journey of Black and Red
+    author: Mecanimus
+    epub_filename: out/AJoBR.epub
+    cover_image: 'https://www.royalroadcdn.com/public/covers-large/26675-a-journey-of-black-and-red.jpg'
+    css_filename: 'kindle.css'
+    entry_point: 'https://www.royalroad.com/fiction/26675/a-journey-of-black-and-red/chapter/393832/1-cruel-genesis'
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+          # title_css_selector: 'div.chapter-inner strong'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+# Custume
+custom:
+  load_images: False
