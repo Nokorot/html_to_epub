@@ -55,7 +55,7 @@ if __name__ == '__main__':
         fn = config.book.epub_filename
         epub_f = book.generate_epub()
         print(fn)
-        
+
         epub.write_epub(fn, epub_f, {})
     except Exception as e:
         print(traceback.format_exc())
