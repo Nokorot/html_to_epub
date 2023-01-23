@@ -1,23 +1,19 @@
-
 import sys, os, optparse
 import json, yaml
-import tempfile
 import requests, xmltodict
+
 from datetime import datetime
 from dateutil import parser as date_parser
 
-from lib.callbacks import get_callback_class
-from lib.book import Book
-
 from ebooklib import epub
+
+from .lib import Config, Book, get_callback_class
 
 __description = '''\
 Download the new chapters from royal road and turn them into an epub file.'''
 
-from lib.config import Config
-
-
 def getChapters(url, data):
+
     def genConfig():
         config = {}
         config['cache'] = data['cache']
@@ -60,14 +56,10 @@ def getOldestNew(url, lastTime):
             oldestNew = item
     return oldestNew
 
-
-def main(dataFile, *args):
+def load_datafile(dataFile):
     # For preserving the structure of the yaml file
     from ruamel.yaml import YAML, util
-
     data, ind, bsi = util.load_yaml_guess_indent(open(dataFile))
-    # with open(dataFile, "r") as f:
-    #     data = yaml.safe_load(f)
 
     rss_url = data['rss_url']
     lastTime = date_parser.parse(data['lastTime'])
@@ -84,16 +76,15 @@ def main(dataFile, *args):
     yaml.indent(mapping=ind, sequence=ind, offset=bsi)
     with open(dataFile, 'w') as fp:
         yaml.dump(data, fp)
-    # with open(dataFile, "wb") as f:
-    #     f.write(bytes(yaml.dump(data), 'utf-8'))
 
 
-if __name__ == "__main__":
+__description = '''\
+Download the new chapters from royal road and turn them into an epub file.'''
+
+def main():
     usage = "%prog [options] <dataFile>"
     parser = optparse.OptionParser(usage = usage, description=__description)
-    parser.add_option('--config', dest='config', help='yaml config file')
-    parser.add_option('-d', '--debug', dest='debug', default=False, action='store_true', help='enable debug output')
-    parser.add_option('--toc-break', dest='toc_break', default=False, action='store_true', help='Only parse table of contents, useful when debugging a new web site')
+    # parser.add_option('-d', '--debug', dest='debug', default=False, action='store_true', help='enable debug output')
 
     (options, args) = parser.parse_args()
 
@@ -103,4 +94,4 @@ if __name__ == "__main__":
        sys.stderr.write('use -h for more infromation.\n')
        sys.exit(1)
 
-    main(*args)
+    load_from_datafile(args[0])
