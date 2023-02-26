@@ -33,25 +33,6 @@ class Callbacks(Callbacks):
             else:
                 img.drop_tree()
  
-        for span in selector_match.cssselect('span'):
-            style = span.get('style')
-            if not ('color' in style):
-                continue
-
-            a = style.split("rgba(", 1)[1]
-            a = a.split(')')[0]
-            c = [int(v) for v in a.split(',')]
-
-            # c = parse("{:d},{:d},{:d},{:d}", a)
-            if not c:
-                print(style)
-                continue
-
-            k = (c[0] << 16) + (c[1] << 8) + c[2]
-            for child in span.iterdescendants():
-                child.text = "#{:06x} {}".format(k, child.text)
-                break;
-
         for table in selector_match.cssselect('table'):
             table.set('style', "border: solid 1px; width: 100%;")
             table.set('width', None)
@@ -63,9 +44,10 @@ class Callbacks(Callbacks):
             td.set('width', None)
 
         for hr in selector_match.cssselect('hr'):
+            print("Hey")
             # hr.set('style', "backgroud: sep.png")
-            img_src = self.book.get_image_src('sep.png')
-            
-            img = lxml.html.fromstring(f'<div align="center" style="text-align:center"><img src="{img_src}" width=80%></div>')
-            hr.getparent().replace(hr, img)
+            # img_src = self.book.get_image_src('sep.png')
+            # 
+            # img = lxml.html.fromstring(f'<div align="center" style="text-align:center"><img src="{img_src}" width=80%></div>')
+            # hr.getparent().replace(hr, img)
         return selector_match

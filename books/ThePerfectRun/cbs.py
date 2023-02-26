@@ -12,14 +12,7 @@ class Callbacks(Callbacks):
         self.current_book = 1
 
     def chapter_section_callback(self, selector_matches):
-        markers = [ "Chapter 51", "Chapter 101", "Chapter 147", "Chapter 196", 
-                   "Chapter 241", "Chapter 275", "Chapter 316", "Chapter 375", 'EEEENNNNDDDDD']
-
-        if markers[self.current_book-1] in selector_matches[0].text:
-            self.current_book += 1
-            print("Next Book %s" % self.current_book)
-        
-        return "Book %s" % (self.current_book)
+        return "ThePerfectRun"
 
     def chapter_title_callback(self, selector_matches):
         return selector_matches[0].text
@@ -33,25 +26,6 @@ class Callbacks(Callbacks):
             else:
                 img.drop_tree()
  
-        for span in selector_match.cssselect('span'):
-            style = span.get('style')
-            if not ('color' in style):
-                continue
-
-            a = style.split("rgba(", 1)[1]
-            a = a.split(')')[0]
-            c = [int(v) for v in a.split(',')]
-
-            # c = parse("{:d},{:d},{:d},{:d}", a)
-            if not c:
-                print(style)
-                continue
-
-            k = (c[0] << 16) + (c[1] << 8) + c[2]
-            for child in span.iterdescendants():
-                child.text = "#{:06x} {}".format(k, child.text)
-                break;
-
         for table in selector_match.cssselect('table'):
             table.set('style', "border: solid 1px; width: 100%;")
             table.set('width', None)
@@ -63,9 +37,10 @@ class Callbacks(Callbacks):
             td.set('width', None)
 
         for hr in selector_match.cssselect('hr'):
+            print("Hey")
             # hr.set('style', "backgroud: sep.png")
-            img_src = self.book.get_image_src('sep.png')
-            
-            img = lxml.html.fromstring(f'<div align="center" style="text-align:center"><img src="{img_src}" width=80%></div>')
-            hr.getparent().replace(hr, img)
+            # img_src = self.book.get_image_src('sep.png')
+            # 
+            # img = lxml.html.fromstring(f'<div align="center" style="text-align:center"><img src="{img_src}" width=80%></div>')
+            # hr.getparent().replace(hr, img)
         return selector_match

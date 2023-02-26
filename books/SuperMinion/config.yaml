@@ -1,0 +1,20 @@
+cache: './cache/html/SuperMinion'
+callbacks: 'books.SuperMinion.cbs.Callbacks'
+book:
+    title: Super Minion
+    author: Gogglesbear
+    epub_filename: out/SuperMinion.epub
+    cover_image: 'https://www.royalroadcdn.com/public/covers-large/21410-super-minion.jpg'
+    css_filename: 'kindle.css'
+    entry_point: 'https://www.royalroad.com/fiction/21410/super-minion/chapter/303435/ch1-taste-test'
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+
+# These cursom variables, may be refered to in the callback sript.
+#   The 'load_images' flag, inicates whether or not images found in the content 
+#   should be included in the epub.
+custom:
+  load_images: False

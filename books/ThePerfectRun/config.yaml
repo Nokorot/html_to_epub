@@ -1,0 +1,21 @@
+cache: './cache/html/ThePerfectRun'
+
+callbacks: 'books.ThePerfectRun.cbs.Callbacks'
+book:
+    title: The Perfect Run
+    author: Maxime J. Durand
+    epub_filename: out/ThePerfectRun.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/36735-the-perfect-run.jpg?time=1604749383
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/36735/the-perfect-run/chapter/569225/1-quicksave
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+
+# These cursom variables, may be refered to in the callback sript.
+#   The 'load_images' flag, inicates whether or not images found in the content 
+#   should be included in the epub.
+custom:
+  load_images: False

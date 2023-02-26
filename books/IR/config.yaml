@@ -1,16 +1,17 @@
 cache: './cache/html/IR'
 callbacks: 'books.IR.IR.TestCallbacks'
 book:
-    title: Infinite Realm
+    title: Infinite Realm 5+
     author: Ivan Kal
-    epub_filename: IR.epub
+    epub_filename: out/IR_5+.epub
     cover_image: ./books/IR/cover.png
     css_filename: 'kindle.css'
-    entry_point: 'https://www.royalroad.com/fiction/27325/infinite-realm-monsters-legends/chapter/1063019/chapter-383-zach'
+    entry_point: 'https://www.royalroad.com/fiction/27325/infinite-realm-monsters-legends/chapter/823083/chapter-303-naha' 
     chapter:
         section_css_selector: 'div.fic-header h1.font-white'
-        title_css_selector: 'div.chapter-inner strong'
+        title_css_selector: 'div.fic-header h1.font-white'
+          # title_css_selector: 'div.chapter-inner strong'
         text_css_selector: 'div.chapter-inner'
         next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
     images:
-      sep.png: "./books/IR/16.png"
+      sep.png: "https://www.royalroad.com/dist/img/ornaments/16.png"
