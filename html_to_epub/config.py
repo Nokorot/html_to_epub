@@ -20,15 +20,20 @@ class BookConfig:
         self.epub_filename = yml['epub_filename']
         self.chapter = ChapterConfig(yml['chapter'])
         self.css_filename = yml['css_filename']
-        self.entry_point = yml['entry_point']
+    
+        if 'entry_point' in yml:
+            self.entry_points = [yml['entry_point']]
+        elif 'entry_points' in yml:
+            self.entry_points = yml['entry_points']
+        else:
+            raise ValueError('No entry point provided in the confid file')
 
-        print(yml)
         self.cover_img = yml.get('cover_image', None)
 
         self.images = yml.get('images', {})
 
     def __str__(self):
-        return "  Book{{\n    title: '{}'\n    author: '{}'\n    epub_filename: '{}'\n    css_filename: '{}'\n    entry_point: '{}'\n{}\n  }}".format(self.title, self.author, self.epub_filename, self.css_filename, self.entry_point, str(self.chapter))
+        return "  Book{{\n    title: '{}'\n    author: '{}'\n    epub_filename: '{}'\n    css_filename: '{}'\n    entry_points: '{}'\n{}\n  }}".format(self.title, self.author, self.epub_filename, self.css_filename, str(self.entry_points), str(self.chapter))
 
 class Config:
     def __init__(self, configData, debug=False, toc_break=False):

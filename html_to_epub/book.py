@@ -3,6 +3,8 @@ from ebooklib import epub
 from tqdm import tqdm
 import pickle, uuid, logging
 
+import hashlib
+
 from .chapter import Chapter
 from .image import Image
 
@@ -37,13 +39,15 @@ class Book:
     def add_image(self, url, ref=None):
         if not ref:
             # TODO: This could be more clever
-            ref = "image_%u" % len(self.images)
+            # ref = "image_%u" % len(self.images)
+            ref = hashlib.md5(url.encode('utf-8')).hexdigest()
 
         if self.images.get(ref):
-            if self.images[ref].url != url:
-                logging.getLogger().worning("Multiple images with the same refrence '%s'\n\told: '%s'\n\tnew: '%s'<++>" \
-                        % (ref, self.images[ref].url, url))
-            return None
+            return self.images.get(ref);
+            # if self.images[ref].url != url:
+            #     logging.getLogger().worning("Multiple images with the same refrence '%s'\n\told: '%s'\n\tnew: '%s'<++>" \
+            #             % (ref, self.images[ref].url, url))
+            # return None
         self.images[ref] = Image(self.config, ref, url)
         return self.images[ref]
 
@@ -54,7 +58,7 @@ class Book:
         return None
 
     '''
-    Walks through a web page starting with config.book.entry_point, finding a 'next chapter' link and continueing until
+    Walks through a web page starting with config.book.entry_points, finding a 'next chapter' link and continueing until
     a next chapter link cannot be found. If a web page exists in the cache it will be loaded from the local file,
     otherwise it will download the web page and then load the dom.
 
@@ -62,29 +66,32 @@ class Book:
     hundreds of megs of data) I wanted to give the caller more control over it.
     '''
     def load_html(self):
-        current = Chapter(self.config.book.entry_point, self.config, self.callbacks)
-        current.load_html()
-        self.chapters.append(current)
-
-        next = current.get_next_chapter()
+        entry_points = self.config.book.entry_points
+        entry_point_count = 0
         max_iterations = self.config.max_chapter_iterations
         i = 0
 
+        current = None
         logging.getLogger().info('Walking through chapters (this could take a while)')
         with tqdm() as pbar:
-            while next is not None and i < max_iterations:
-                current = next
+            while  i < max_iterations:
+                if current is None:
+                    if len(entry_points) <= entry_point_count:
+                        break;
+                    current = Chapter(entry_points[entry_point_count], \
+                            self.config, self.callbacks)
+                    entry_point_count += 1
+
                 current.load_html()
-
                 self.chapters.append(current)
-
-                next = current.get_next_chapter()
+                current = current.get_next_chapter()
                 i += 1
                 pbar.update(1)
 
             if i == max_iterations:
+                # Note: Infinite loop detection could also be detecte by, storing a list of visited urls
                 logging.getLogger().warn('Possible infinite loop detected, check your next_chapter_css_selector and/or chapter_next_callback callback function or increase config.max_chapter_iterations value')
-
+            
             self.chapters = self.callbacks.sort_chapters(self.chapters)
 
 

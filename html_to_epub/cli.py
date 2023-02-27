@@ -1,8 +1,8 @@
 
 from ebooklib import epub
 
-from .lib import Book, Chapter, Config
-from .lib.callbacks import get_callback_class
+from . import Book, Chapter, Config
+from .callbacks import get_callback_class
 
 import optparse, os, traceback, shutil, logging, sys
 
