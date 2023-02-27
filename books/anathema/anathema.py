@@ -1,4 +1,4 @@
-from lib.callbacks import Callbacks
+from html_to_epub.callbacks import Callbacks
 from lxml.etree import tostring
 import re, logging
 

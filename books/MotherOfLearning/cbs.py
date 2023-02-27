@@ -1,28 +1,10 @@
-
+from html_to_epub.callbacks import Callbacks
 import lxml.html
-from lib.callbacks import Callbacks
-
-import re
-from parse import parse
 
 class Callbacks(Callbacks):
 
-    def __init__(self, config):
-        self.config = config
-        self.current_book = 1
-
     def chapter_section_callback(self, selector_matches):
-        markers = [ "Chapter 51", "Chapter 101", "Chapter 147", "Chapter 196", 
-                   "Chapter 241", "Chapter 275", "Chapter 316", "Chapter 375", 'EEEENNNNDDDDD']
-
-        if markers[self.current_book-1] in selector_matches[0].text:
-            self.current_book += 1
-            print("Next Book %s" % self.current_book)
-        
-        return "Book %s" % (self.current_book)
-
-    def chapter_title_callback(self, selector_matches):
-        return selector_matches[0].text
+        return "Mother Of Learning"
 
     def chapter_text_callback(self, selector_match):
         for img in selector_match.cssselect('img'):
@@ -43,11 +25,4 @@ class Callbacks(Callbacks):
             td.set('style', "border: solid 1px; width: 100%;")
             td.set('width', None)
 
-        for hr in selector_match.cssselect('hr'):
-            print("Hey")
-            # hr.set('style', "backgroud: sep.png")
-            # img_src = self.book.get_image_src('sep.png')
-            # 
-            # img = lxml.html.fromstring(f'<div align="center" style="text-align:center"><img src="{img_src}" width=80%></div>')
-            # hr.getparent().replace(hr, img)
         return selector_match

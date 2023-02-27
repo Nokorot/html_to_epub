@@ -1,4 +1,4 @@
-from lib.callbacks import Callbacks
+from html_to_epub.callbacks import Callbacks
 import re
 
 class ParahumansCallbacks(Callbacks):

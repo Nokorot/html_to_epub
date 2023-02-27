@@ -1,0 +1,24 @@
+cache: './cache/html/BSO'
+callbacks: 'books.BSO.cbs.Callbacks'
+book:
+    title: Blade Skill Online
+    author: Mazi Manzi
+    epub_filename: out/BSO.epub
+    cover_image: https://zkytl.files.wordpress.com/2022/09/51l1vq6m2vl.jpg
+    css_filename: 'kindle.css'
+    entry_points: 
+      - https://zkytl.wordpress.com/2022/09/14/bso-chapter-prologue/
+      - https://zkytl.wordpress.com/2022/09/14/bso-chapter-3/
+      - https://zkytl.wordpress.com/2022/10/22/bso-chapter-21/
+
+    chapter:
+        section_css_selector: 'h1.entry-title'
+        title_css_selector: 'h1.entry-title'
+        text_css_selector: 'div.entry-content p.has-text-color'
+        next_chapter_css_selector: 'div.entry-content a'
+
+# These cursom variables, may be refered to in the callback sript.
+#   The 'load_images' flag, inicates whether or not images found in the content 
+#   should be included in the epub.
+custom:
+  load_images: False
