@@ -13,7 +13,8 @@ Chapter class - parses a web page for the chapter's title, ToC section and chapt
                 Also responsible for turning this into an epub.EpubHtml object
 '''
 class Chapter:
-    def __init__(self, url, config, callbacks):
+    def __init__(self, book, url, config, callbacks):
+        self.book = book
         self.config = config
         self.callbacks = callbacks
         self.url = Network.clean_url(url)
@@ -62,15 +63,28 @@ class Chapter:
     def get_text(self):
         match = CSSSelector(self.config.book.chapter.text_css_selector)
 
+        # TODO: Note that this may not be all paragraphes.  p => selector_match
         paragraphs = []
         for p in match(self.tree):
             # call user callback on each matched element
             p = self.callbacks.chapter_text_callback(p)
 
             # if the user callback returns None we ignore this element
-            if p is not None:
-                #to string will give us the strong representation of the dom, including html markup which the epub can render
-                paragraphs.append(tostring(p, encoding='unicode'))
+            if p is None:
+                continue
+
+            # add images
+            for img in p.cssselect('img'):
+                if self.config.book.include_images:
+                    # TODO: Should down-scale imeages, to a more appropriate resolution
+                    imgobj = self.book.add_image(img.get('src'))
+                    img.set('src', imgobj.get_src())
+                else:
+                    img.drop_tree()
+ 
+
+            #to string will give us the strong representation of the dom, including html markup which the epub can render
+            paragraphs.append(tostring(p, encoding='unicode'))
 
 
         return ''.join(paragraphs)
@@ -85,7 +99,7 @@ class Chapter:
 
         if url is not None:
             url = urljoin(self.url, url)
-            self.next = Chapter(url ,self.config, self.callbacks)
+            self.next = Chapter(self.book, url, self.config, self.callbacks)
 
         return self.next
 

@@ -2,9 +2,6 @@ from html_to_epub.callbacks import Callbacks
 import lxml.html
 
 class TestCallbacks(Callbacks):
-    def __init__(self, config):
-        super(self, config)
-        self.sections = dict()
     
     def chapter_section_callback(self, selector_matches):
         return "IR"
@@ -18,7 +15,11 @@ class TestCallbacks(Callbacks):
         for td in selector_match.cssselect('td'):
             td.set('style', "border: solid 1px; width: 100%;")
 
+            
         for hr in selector_match.cssselect('hr'):
-            img = lxml.html.fromstring('<div align="center"><img src="sep.png" width=80%></div>')
+            img_src = self.book.get_image_src('sep.png')
+            div = f'<div align="center" style="text-align:center"> <img src="{img_src}" width=50%></div>'
+            img = lxml.html.fromstring(div)
             hr.getparent().replace(hr, img)
+
         return selector_match

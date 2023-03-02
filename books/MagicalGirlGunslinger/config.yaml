@@ -1,0 +1,15 @@
+cache: './cache/html/MagicalGirlGunslinger'
+callbacks: 'books.MagicalGirlGunslinger.cbs.Callbacks'
+book:
+    title: Magical Girl Gunslinger
+    author: Mikasane
+    epub_filename: out/MagicalGirlGunslinger.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/48402-magical-girl-gunslinger.jpg?time=1666573972
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/48402/magical-girl-gunslinger/chapter/783609/chapter-1-arcadia
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

@@ -78,7 +78,7 @@ class Book:
                 if current is None:
                     if len(entry_points) <= entry_point_count:
                         break;
-                    current = Chapter(entry_points[entry_point_count], \
+                    current = Chapter(self, entry_points[entry_point_count], \
                             self.config, self.callbacks)
                     entry_point_count += 1
 

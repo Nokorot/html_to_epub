@@ -5,9 +5,11 @@ import requests, xmltodict
 from datetime import datetime
 from dateutil import parser as date_parser
 
+import copy
+
 from ebooklib import epub
 
-from .lib import Config, Book, get_callback_class
+from . import Config, Book, get_callback_class
 
 __description = '''\
 Download the new chapters from royal road and turn them into an epub file.'''
@@ -19,7 +21,7 @@ def getChapters(url, data):
         config['cache'] = data['cache']
         config['ignore_cache'] = data.get('ignore_cache', True)
         config['callbacks'] = data['callbacks']
-        config['book'] = data['book']
+        config['book'] = copy.deepcopy(data['book'])
         config['book']['entry_point'] = url
         date = datetime.now().__format__("%F")
         config['book']['epub_filename'] = \
@@ -94,4 +96,4 @@ def main():
        sys.stderr.write('use -h for more infromation.\n')
        sys.exit(1)
 
-    load_from_datafile(args[0])
+    print(load_datafile(args[0]))

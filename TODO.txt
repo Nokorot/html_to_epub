@@ -1,6 +1,6 @@
 
-General:
-    - Custom toc
-    - Ignore the last cache flag
-    - Multiple entrypoints
+- Scale down images
+- Custom toc
+- Ignore the last cache flag
+- Multiple entrypoints
 

@@ -16,9 +16,3 @@ book:
         title_css_selector: 'h1.entry-title'
         text_css_selector: 'div.entry-content p.has-text-color'
         next_chapter_css_selector: 'div.entry-content a'
-
-# These cursom variables, may be refered to in the callback sript.
-#   The 'load_images' flag, inicates whether or not images found in the content 
-#   should be included in the epub.
-custom:
-  load_images: False

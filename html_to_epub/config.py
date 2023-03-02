@@ -21,6 +21,8 @@ class BookConfig:
         self.chapter = ChapterConfig(yml['chapter'])
         self.css_filename = yml['css_filename']
     
+        self.include_images = yml.get('include_images', False)
+
         if 'entry_point' in yml:
             self.entry_points = [yml['entry_point']]
         elif 'entry_points' in yml:

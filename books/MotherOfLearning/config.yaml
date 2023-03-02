@@ -12,9 +12,3 @@ book:
         title_css_selector: 'div.fic-header h1.font-white'
         text_css_selector: 'div.chapter-inner'
         next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
-
-# These cursom variables, may be refered to in the callback sript.
-#   The 'load_images' flag, inicates whether or not images found in the content 
-#   should be included in the epub.
-custom:
-  load_images: False

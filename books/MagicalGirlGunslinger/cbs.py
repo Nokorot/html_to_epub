@@ -4,7 +4,7 @@ import lxml.html
 class Callbacks(Callbacks):
 
     def chapter_section_callback(self, selector_matches):
-        return "All the Dust that Falls"
+        return "Magical Girl Gunslinger"
 
     def chapter_text_callback(self, selector_match):
         for table in selector_match.cssselect('table'):

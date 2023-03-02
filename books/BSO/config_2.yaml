@@ -18,10 +18,3 @@ crawl:
 crawl:
     entry_point: https://zkytl.wordpress.com/2022/09/14/bso-chapter-3/ 
     next_chapter_css_selector: 'div.entry-content a[title="Next"]'
-
-
-# These cursom variables, may be refered to in the callback sript.
-#   The 'load_images' flag, inicates whether or not images found in the content 
-#   should be included in the epub.
-custom:
-  load_images: False
