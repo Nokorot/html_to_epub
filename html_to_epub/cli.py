@@ -8,11 +8,21 @@ import optparse, os, traceback, shutil, logging, sys
 
 def parse_options():
     parser = optparse.OptionParser()
-    parser.add_option('-c', '--clear-cache', dest='clear', default = False, action = 'store_true', help='Clears all local cache files, before loading the entry-pont webpage')
-    parser.add_option('-i', '--ignore-cache', dest='ignore', default = False, action = 'store_true', help='Ignore all local cache files, when loading the files. Instead download an up-to-date version from the website and overwriting the cache if it exists.')
-    parser.add_option('--config', dest='config', help='yaml config file')
-    parser.add_option('-d', '--debug', dest='debug', default=False, action='store_true', help='enable debug output')
-    parser.add_option('--toc-break', dest='toc_break', default=False, action='store_true', help='Only parse table of contents, useful when debugging a new web site')
+    parser.add_option('-c', '--clear-cache', dest='clear', \
+            default = False, action = 'store_true', \
+            help='Clears all local cache files, before loading the entry-pont webpage')
+    parser.add_option('-i', '--ignore-cache', dest='ignore', \
+            default = False, action = 'store_true', \
+            help='Ignore all local cache files, when loading the files. Instead download an up-to-date version from the website and overwriting the cache if it exists.')
+    parser.add_option('-l', '--ignore-last-cache', dest='ignore_last_cache', \
+            default = False, action = 'store_true', \
+            help='If no next chapter is found, and this chapter was chashed. Then it will be downloaded again, to chack if there might be any updates. Useful, in case you are downloading a book that is not finished yet, and want to download all the new chapters.')
+    parser.add_option('--config', dest='config', \
+            help='yaml config file')
+    parser.add_option('-d', '--debug', dest='debug', default=False, action='store_true', \
+            help='enable debug output')
+    parser.add_option('--toc-break', dest='toc_break', default=False, action='store_true', \
+            help='Only parse table of contents, useful when debugging a new web site')
 
     return parser.parse_args()
 
@@ -41,6 +51,7 @@ def main():
 
     config = Config(options.config, options.debug, options.toc_break)
     config.ignore_cache = options.ignore;
+    config.ignore_last_cache = options.ignore_last_cache;
     logging.getLogger().info(str(config))
 
     if options.clear and os.path.exists(config.cache):

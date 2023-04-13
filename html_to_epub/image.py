@@ -29,8 +29,9 @@ class Image:
             self.cache_filename = Network.cache_filename(self.config.cache, self.url, self.fileext)
 
 
-    def get_src(self):
+    def get_epub_src(self):
         return "./" + self.config.images_dir + self.ref
+
 
     '''
     Cache (if necessary) and load file descriptor into memory

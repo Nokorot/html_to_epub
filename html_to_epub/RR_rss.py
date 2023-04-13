@@ -41,6 +41,8 @@ def getChapters(url, data):
     print(config.book.epub_filename)
     epub.write_epub(config.book.epub_filename, book.generate_epub(), {})
 
+    return config.book.epub_filename
+
 
 # Note: this code is very spesific
 def getOldestNew(url, lastTime):
@@ -69,15 +71,17 @@ def load_datafile(dataFile):
 
     if not oldestNew:
         print("There are no updates!")
-        sys.exit(0)
+        return False, None
 
-    getChapters(oldestNew['link'], data)
+    epub_filename = getChapters(oldestNew['link'], data)
     data['lastTime'] = datetime.now().isoformat(timespec='seconds') + '+0000'
 
     yaml = YAML()
     yaml.indent(mapping=ind, sequence=ind, offset=bsi)
     with open(dataFile, 'w') as fp:
         yaml.dump(data, fp)
+
+    return True, epub_filename
 
 
 __description = '''\
@@ -86,6 +90,8 @@ Download the new chapters from royal road and turn them into an epub file.'''
 def main():
     usage = "%prog [options] <dataFile>"
     parser = optparse.OptionParser(usage = usage, description=__description)
+    parser.add_option('-o', '--output-filename', dest='output', help='The filename of the new epub-file is written to this file')
+
     # parser.add_option('-d', '--debug', dest='debug', default=False, action='store_true', help='enable debug output')
 
     (options, args) = parser.parse_args()
@@ -96,4 +102,7 @@ def main():
        sys.stderr.write('use -h for more infromation.\n')
        sys.exit(1)
 
-    print(load_datafile(args[0]))
+    new, epub_filename = load_datafile(args[0])
+    if new and options.output:
+        with open(options.output, 'a') as f:
+            f.write("%s\n" % epub_filename)

@@ -51,6 +51,7 @@ class Config:
         self.book = BookConfig(config['book'])
         self.cache = config['cache']
         self.ignore_cache = config.get('ignore_cache', False)
+        self.ignore_last_cache = config.get('ignore_last_cache', False)
 
         self.callbacks = config.get('callbacks', None)
         self.max_chapter_iterations = \

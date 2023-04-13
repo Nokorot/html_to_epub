@@ -41,21 +41,10 @@ class Book:
             # TODO: This could be more clever
             # ref = "image_%u" % len(self.images)
             ref = hashlib.md5(url.encode('utf-8')).hexdigest()
+        if not self.images.__contains__(ref):
+            self.images[ref] = Image(self.config, ref, url)
 
-        if self.images.get(ref):
-            return self.images.get(ref);
-            # if self.images[ref].url != url:
-            #     logging.getLogger().worning("Multiple images with the same refrence '%s'\n\told: '%s'\n\tnew: '%s'<++>" \
-            #             % (ref, self.images[ref].url, url))
-            # return None
-        self.images[ref] = Image(self.config, ref, url)
-        return self.images[ref]
-
-    def get_image_src(self, ref):
-        img = self.images.get(ref)
-        if img:
-            return img.get_src()
-        return None
+        return self.images[ref];
 
     '''
     Walks through a web page starting with config.book.entry_points, finding a 'next chapter' link and continueing until
@@ -84,7 +73,15 @@ class Book:
 
                 current.load_html()
                 self.chapters.append(current)
-                current = current.get_next_chapter()
+                print(f"Adding chapter \"{current.title}\"")
+
+                next = current.get_next_chapter()
+                if (next is None) and current.is_cashed \
+                       and self.config.ignore_last_cache \
+                       and (not self.config.ignore_cache):
+                    current.load_html(ignore_cache=True)
+                    next = current.get_next_chapter()
+                current = next
                 i += 1
                 pbar.update(1)
 
@@ -144,7 +141,8 @@ class Book:
         # Load and include all images into the epub
         for i, (ref, img) in enumerate(self.images.items()):
             # TODO:3 At the moment I'm expecting ext as a part of key
-            print("Adding Image: '%s'" % ref)
+            # print("Adding Image: '%s'" % img.url)
+            print("Adding Image: '%s' as '%s'" % (img.url, ref))
             data = img.load_file()
 
             # TODO: Need to fix the media type, though it seams to work fine also with png atm.

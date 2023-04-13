@@ -22,9 +22,9 @@ class Network:
 
     @staticmethod
     def load_and_cache(url, cache_filename, ignore_cache=False, mode='rb'):
-        print(f"Load '{url}'");
-
         if ignore_cache or (not os.path.isfile(cache_filename)):
+            print(f"Downloading '{url}'");
+
             logging.getLogger().debug('Cache miss - Downloading ' + url + ' to ' + cache_filename)
 
             # TODO: This is the wrong place to have this

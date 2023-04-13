@@ -6,6 +6,7 @@ import uuid, logging
 from urllib.parse import urljoin
 
 from .util import Network
+import os
 
 
 '''
@@ -19,6 +20,7 @@ class Chapter:
         self.callbacks = callbacks
         self.url = Network.clean_url(url)
         self.cache_filename = Network.cache_filename(self.config.cache, self.url)
+        self.is_cashed = os.path.isfile(self.cache_filename)
         self.next = None
         self.tree = None
         self.title = None
@@ -33,8 +35,9 @@ class Chapter:
     '''
     Cache (if necessary) and load html dom into memory
     '''
-    def load_html(self):
-        self.tree = Network.load_and_cache_html(self.url, self.cache_filename, self.config.ignore_cache)
+    def load_html(self, ignore_cache=False):
+        self.tree = Network.load_and_cache_html(
+                self.url, self.cache_filename, ignore_cache or self.config.ignore_cache)
 
         # initalize chapter fields in case __str__ is called
         self.get_title()
@@ -54,6 +57,10 @@ class Chapter:
             return "Title"
         match = CSSSelector(self.config.book.chapter.title_css_selector)
         self.title = self.callbacks.chapter_title_callback(match(self.tree))
+
+        if not self.title:
+            # TODO: Fix
+            self.title = "Title"
 
         return self.title
 
@@ -78,7 +85,7 @@ class Chapter:
                 if self.config.book.include_images:
                     # TODO: Should down-scale imeages, to a more appropriate resolution
                     imgobj = self.book.add_image(img.get('src'))
-                    img.set('src', imgobj.get_src())
+                    img.set('src', imgobj.get_epub_src())
                 else:
                     img.drop_tree()
  
