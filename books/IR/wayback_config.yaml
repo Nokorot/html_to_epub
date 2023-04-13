@@ -1,0 +1,21 @@
+cache: './cache/html/IR_WB'
+callbacks: 'books.IR.IR.TestCallbacks'
+book:
+    title: Infinite Realm
+    author: Ivan Kal
+    epub_filename: out/IR_WB.epub
+
+    cover_image: ./books/IR/cover.png
+    css_filename: 'kindle.css'
+      # entry_point: 'https://web.archive.org/web/20210802221625/https://www.royalroad.com/fiction/27325/infinite-realm-monsters-legends/chapter/406626/prologue' 
+    entry_point: https://web.archive.org/web/20210918191852/https://www.royalroad.com/fiction/27325/infinite-realm-monsters-legends/chapter/409981/chapter-18-present-ryun
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+          # title_css_selector: 'div.chapter-inner strong'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True
+
+
+      # https://web.archive.org/web/20210802221625/https://www.royalroad.com/fiction/27325/infinite-realm-monsters-legends/chapter/406650/chapter-1-past-ryun

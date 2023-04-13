@@ -1,25 +1,15 @@
-from html_to_epub.callbacks import Callbacks
+from books.RR_Template.cbs_base import Callbacks
 import lxml.html
 
 class TestCallbacks(Callbacks):
     
-    def chapter_section_callback(self, selector_matches):
-        return "IR"
-
     def chapter_text_callback(self, selector_match):
-        selector_match.cssselect('p')[0].drop_tree()
+        # selector_match.cssselect('p')[0].drop_tree()
 
-        for table in selector_match.cssselect('table'):
-            table.set('style', None)
+        self.handle_tables(selector_match)
 
-        for td in selector_match.cssselect('td'):
-            td.set('style', "border: solid 1px; width: 100%;")
-
-            
-        for hr in selector_match.cssselect('hr'):
-            img_src = self.book.get_image_src('sep.png')
-            div = f'<div align="center" style="text-align:center"> <img src="{img_src}" width=50%></div>'
-            img = lxml.html.fromstring(div)
-            hr.getparent().replace(hr, img)
+        hr_image_src = "https://www.royalroad.com/dist/img/ornaments/16.png"
+        # hr_image_src = "./books/IR/sep.png"
+        self.handle_hr_imgages(selector_match, sep_img_src)
 
         return selector_match

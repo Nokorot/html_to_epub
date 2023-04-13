@@ -1,5 +1,4 @@
-from html_to_epub.callbacks import Callbacks
-import lxml.html
+from books.RR_Template.cbs_base import Callbacks
 
 class Callbacks(Callbacks):
     current_book = 1
@@ -32,20 +31,17 @@ class Callbacks(Callbacks):
             for child in span.iterdescendants():
                 child.text = "#{:06x} {}".format(k, child.text)
                 break;
+    
+        self.handle_tables(selector_match)
+        
+        
+        sep_img_src = "./books/BTDM/sep.png"
+        # sep_img_src = "https://www.royalroadcdn.com/public/ornaments/36299-ornament.png"
+        self.handle_hr_imgages(selector_match, sep_img_src)
 
-        for table in selector_match.cssselect('table'):
-            table.set('style', "border: solid 1px; width: 100%;")
-            table.set('width', None)
-            par = table.getparent()
-            par.getparent().replace(par, table)
+        for img in selector_match.cssselect('img'):
+            if 'imgur.com' in img.get('src', ""):
+                img.drop_tree()
 
-        for td in selector_match.cssselect('td'):
-            td.set('style', "border: solid 1px; width: 100%;")
-            td.set('width', None)
 
-        for hr in selector_match.cssselect('hr'):
-            img_src = self.book.get_image_src('sep.png')
-            
-            img = lxml.html.fromstring(f'<div align="center" style="text-align:center"><img src="{img_src}" width=80%></div>')
-            hr.getparent().replace(hr, img)
         return selector_match

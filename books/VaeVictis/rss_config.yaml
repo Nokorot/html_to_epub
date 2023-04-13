@@ -1,0 +1,24 @@
+# This file is for the IR-dl script. Not the html_to_epub
+#  Note:
+#   - That the there is no entry point and instead a rss_url
+#   - The lastTime entry is modifyed by the script
+
+rss_url: https://www.royalroad.com/fiction/syndication/66318
+lastTime: 2023-03-27T18:29:11+0000
+
+
+cache: './cache/html/VaeVictis'
+callbacks: 'books.VaeVictis.cbs.Callbacks'
+book:
+    title: Vae Victis 
+    author: Ivan Kal 
+    epub_filename: out/VaeVictis-%date.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/vae-victis-progression-litrpg-apocalypse-aaba8aiiibm.jpg?time=1680173973
+    css_filename: kindle.css
+    entry_point: https://www.royalroad.com/fiction/66318/vae-victis-progression-litrpg-apocalypse/chapter/1153181/chapter-1-my-last-day
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

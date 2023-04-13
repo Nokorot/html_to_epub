@@ -1,0 +1,5 @@
+export       TITLE="Netherborne [An OP Monster Isekai]"
+export      AUTHOR="XKARNATION"
+export  FOLDERNAME="Netherborne"
+export COVER_IMAGE="https://www.royalroadcdn.com/public/covers-large/64709-netherborne-book-1-complete.jpg?time=1678838149"
+export ENTRY_POINT="https://www.royalroad.com/fiction/64709/netherborne-an-op-monster-isekai/chapter/1116812/prologue"

@@ -13,6 +13,4 @@ book:
           # title_css_selector: 'div.chapter-inner strong'
         text_css_selector: 'div.chapter-inner'
         next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
-    images:
-      sep.png: "https://www.royalroad.com/dist/img/ornaments/16.png"
     include_images: True

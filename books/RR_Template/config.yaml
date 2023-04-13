@@ -1,0 +1,15 @@
+cache: './cache/html/<+FOLDERNAME+>'
+callbacks: 'books.<+FOLDERNAME+>.cbs.Callbacks'
+book:
+    title: <+TITLE+> 
+    author: <+AUTHOR+> 
+    epub_filename: out/<+FOLDERNAME+>.epub
+    cover_image: <+COVER_IMAGE+>
+    css_filename: 'kindle.css'
+    entry_point: <+ENTRY_POINT+>
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

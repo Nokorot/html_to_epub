@@ -1,5 +1,4 @@
 cache: './cache/html/ThePerfectRun'
-
 callbacks: 'books.ThePerfectRun.cbs.Callbacks'
 book:
     title: The Perfect Run

@@ -8,17 +8,10 @@ book:
     css_filename: 'kindle.css'
     entry_point: 'https://www.royalroad.com/fiction/36299/beneath-the-dragoneye-moons/chapter/765885/dedication'
 
-    include_images: False
+    include_images: True
 
     chapter:
         section_css_selector: 'div.fic-header h1.font-white'
         title_css_selector: 'div.fic-header h1.font-white'
         text_css_selector: 'div.chapter-inner'
         next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
-    images:
-        sep.png: 'https://www.royalroadcdn.com/public/ornaments/36299-ornament.png'
-
-# These cursom variables, may be refered to in the callback sript.
-#   The 'load_images' flag, inicates whether or not images found in the content 
-#   should be included in the epub.
-custom:

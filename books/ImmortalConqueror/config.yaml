@@ -1,0 +1,15 @@
+cache: './cache/html/ImmortalConqueror'
+callbacks: 'books.ImmortalConqueror.cbs.Callbacks'
+book:
+    title: Immortal Conqueror 
+    author: edwardcastle 
+    epub_filename: out/ImmortalConqueror.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/37269-immortal-conqueror.jpg?time=1604339220
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/37269/immortal-conqueror/chapter/578108/1-prologue-start-of-book-1
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True
