@@ -1,0 +1,15 @@
+cache: './cache/html/VigorMortis'
+callbacks: 'books.VigorMortis.cbs.Callbacks'
+book:
+    title: Vigor Mortis 
+    author: Thundamoo 
+    epub_filename: out/VigorMortis.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/40373-vigor-mortis.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/40373/vigor-mortis/chapter/630602/1-wavering-souls
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

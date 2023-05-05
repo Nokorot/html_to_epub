@@ -1,0 +1,15 @@
+cache: './cache/html/AzarinthHealer'
+callbacks: 'books.AzarinthHealer.cbs.Callbacks'
+book:
+    title: Azarinth Healer 
+    author: Rhaegar 
+    epub_filename: out/AzarinthHealer.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/16946-azarinth-healer.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/16946/azarinth-healer/chapter/198097/chapter-1-boring-introduction-where-is-the-magic
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

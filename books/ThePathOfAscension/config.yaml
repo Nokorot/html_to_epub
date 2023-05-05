@@ -1,0 +1,15 @@
+cache: './cache/html/ThePathOfAscension'
+callbacks: 'books.ThePathOfAscension.cbs.Callbacks'
+book:
+    title: The Path of Ascension 
+    author: C_Mantis 
+    epub_filename: out/ThePathOfAscension.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/the-path-of-ascension-aadaysitg8.jpg?time=1614591717
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/40920/the-path-of-ascension/chapter/639813/the-path-of-ascension-chapter-1
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

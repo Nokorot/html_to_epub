@@ -1,0 +1,15 @@
+cache: './cache/html/APracticalGuideToSorcery'
+callbacks: 'books.APracticalGuideToSorcery.cbs.Callbacks'
+book:
+    title: A Practical Guide to Sorcery 
+    author: AzaleaEllis 
+    epub_filename: out/APracticalGuideToSorcery.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/34009-a-practical-guide-to-sorcery.jpg?time=1661468434
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/34009/a-practical-guide-to-sorcery/chapter/522743/chapter-1-escape-via-unexpected-transmutation
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

@@ -1,6 +1,10 @@
 
+- Force inclide THIS image
+- Template config files. For example, for Royal road.
 - Scale down images
 - Custom toc
+
+# DONE
 - Ignore the last cache flag
 - Multiple entrypoints
 

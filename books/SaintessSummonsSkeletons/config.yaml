@@ -1,0 +1,15 @@
+cache: './cache/html/SaintessSummonsSkeletons'
+callbacks: 'books.SaintessSummonsSkeletons.cbs.Callbacks'
+book:
+    title: "Saintess Summons Skeletons: A Holy Necromancy LitRPG"
+    author: Mornn 
+    epub_filename: out/SaintessSummonsSkeletons.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/62087-saintess-summons-skeletons.jpg?time=1679279761
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/62087/saintess-summons-skeletons-a-holy-necromancy-litrpg/chapter/1066845/chapter-1-un-holy-beginning
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

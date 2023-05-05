@@ -1,0 +1,15 @@
+cache: './cache/html/MillennialMage'
+callbacks: 'books.MillennialMage.cbs.Callbacks'
+book:
+    title: Millennial Mage (A Slice of Life, Progression Fantasy) 
+    author: JLMullins 
+    epub_filename: out/MillennialMage.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/47826-millennial-mage-a-slice-of-life-progression.jpg?time=1650626910
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/47826/millennial-mage-a-slice-of-life-progression-fantasy/chapter/931495/image-gallery
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

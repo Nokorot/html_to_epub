@@ -1,0 +1,15 @@
+cache: './cache/html/MelodyOfMana'
+callbacks: 'books.MelodyOfMana.cbs.Callbacks'
+book:
+    title: Melody of Mana 
+    author: Wandering Agent 
+    epub_filename: out/MelodyOfMana.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/43974-melody-of-mana.jpg?time=1625071236
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/43974/melody-of-mana/chapter/697972/chapter-1-i-am-an-idiot
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

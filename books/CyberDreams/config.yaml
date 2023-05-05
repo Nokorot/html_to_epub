@@ -1,0 +1,15 @@
+cache: './cache/html/CyberDreams'
+callbacks: 'books.CyberDreams.cbs.Callbacks'
+book:
+    title: Cyber Dreams [LitRPG-Lite, Progression Cyberpunk]
+    author: PlumParrot 
+    epub_filename: out/CyberDreams.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/60284-cyber-dreams-litrpg-lite-progression-cyberpunk.jpg?time=1682258257
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/60284/cyber-dreams-litrpg-lite-progression-cyberpunk/chapter/1027937/1-juliet
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

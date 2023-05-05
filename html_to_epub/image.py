@@ -30,7 +30,7 @@ class Image:
 
 
     def get_epub_src(self):
-        return "./" + self.config.images_dir + self.ref
+        return "./" + self.config.images_dir + self.ref + ".png"
 
 
     '''

@@ -1,0 +1,15 @@
+cache: './cache/html/SuperSupportive'
+callbacks: 'books.SuperSupportive.cbs.Callbacks'
+book:
+    title: Super Supportive (Superhero System Novel) 
+    author: Sleyca 
+    epub_filename: out/SuperSupportive.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/super-supportive-superhero-system-novel-aaaay-kgzri.jpg?time=1674610301
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/63759/super-supportive-superhero-system-novel/chapter/1096481/one-the-boy-in-the-bubble
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

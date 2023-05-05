@@ -1,0 +1,15 @@
+cache: './cache/html/MaidToKill'
+callbacks: 'books.MaidToKill.cbs.Callbacks'
+book:
+    title: "[Maid] to Kill Kill Kill"
+    author: zechamp 
+    epub_filename: out/MaidToKill.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/56505-maid-to-kill.jpg?time=1679822340
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/56505/maid-to-kill-kill-kill/chapter/948352/chapter-1-maid-for-battle
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

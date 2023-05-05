@@ -4,7 +4,7 @@
 #   - The lastTime entry is modifyed by the script
 
 rss_url: https://www.royalroad.com/fiction/syndication/27325
-lastTime: 2023-04-05T14:34:31+0000
+lastTime: 2023-04-29T22:53:47+0000
 
 cache: ./cache/IR
 callbacks: books.IR.IR.Callbacks

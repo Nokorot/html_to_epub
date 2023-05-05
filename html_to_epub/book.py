@@ -148,7 +148,7 @@ class Book:
             # TODO: Need to fix the media type, though it seams to work fine also with png atm.
             img = epub.EpubImage(
                     uid         = 'image_%u' % (i),
-                    file_name   =  self.config.images_dir + ref,
+                    file_name   =  self.config.images_dir + ref + ".png",
                     media_type  = 'image/jpeg',
                     content     = data)
             self.book.add_item(img)
