@@ -1,0 +1,15 @@
+cache: './cache/html/12MilesBelow'
+callbacks: 'books.12MilesBelow.cbs.Callbacks'
+book:
+    title: "12 Miles Below" 
+    author: Mark Arrows 
+    epub_filename: out/12MilesBelow.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/42367-12-miles-below.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/42367/12-miles-below/chapter/666999/chapter-1-only-a-nightmare
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

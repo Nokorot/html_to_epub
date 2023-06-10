@@ -1,0 +1,15 @@
+cache: './cache/html/ArtificialJelly'
+callbacks: 'books.ArtificialJelly.cbs.Callbacks'
+book:
+    title: "Artificial Jelly" 
+    author: Materia-Blade 
+    epub_filename: out/ArtificialJelly.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-full/34030-artificial-jelly.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/34030/artificial-jelly/chapter/525665/prologue
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

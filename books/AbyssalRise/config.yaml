@@ -1,0 +1,15 @@
+cache: './cache/html/AbyssalRise'
+callbacks: 'books.AbyssalRise.cbs.Callbacks'
+book:
+    title: "Abyssal Rise (Fantasy LitRPG)" 
+    author: ThroanedK 
+    epub_filename: out/AbyssalRise.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/abyssal-rise-aaaawdcrcxm.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/65671/abyssal-rise-fantasy-litrpg/chapter/1138469/chapter-1-fragility-of-the-void
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

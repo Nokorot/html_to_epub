@@ -1,0 +1,15 @@
+cache: './cache/html/ThisYoungMasterIsNotCannonFodder'
+callbacks: 'books.ThisYoungMasterIsNotCannonFodder.cbs.Callbacks'
+book:
+    title: "This Young Master is not Cannon Fodder" 
+    author: D.C. Haenlien 
+    epub_filename: out/ThisYoungMasterIsNotCannonFodder.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/33461-this-young-master-is-not-cannon-fodder.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/33461/this-young-master-is-not-cannon-fodder/chapter/618446/illustration
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

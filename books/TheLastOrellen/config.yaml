@@ -1,0 +1,15 @@
+cache: './cache/html/TheLastOrellen'
+callbacks: 'books.TheLastOrellen.cbs.Callbacks'
+book:
+    title: "The Last Orellen" 
+    author: sieley 
+    epub_filename: out/TheLastOrellen.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/46901-the-last-orellen.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/46901/the-last-orellen/chapter/757714/chapter-1-elph-of-the-desert
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

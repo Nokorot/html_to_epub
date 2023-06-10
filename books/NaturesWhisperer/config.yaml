@@ -1,0 +1,15 @@
+cache: './cache/html/NaturesWhisperer'
+callbacks: 'books.NaturesWhisperer.cbs.Callbacks'
+book:
+    title: Nature's Whisperer 
+    author: Urmie 
+    epub_filename: out/NaturesWhisperer.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/natures-whisperer-aaca-doyixm.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/66449/natures-whisperer/chapter/1155196/chapter-1-fear-happiness-and-bitterness
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

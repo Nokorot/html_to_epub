@@ -4,7 +4,8 @@ book:
     title: Blade Skill Online
     author: Mazi Manzi
     epub_filename: out/BSO.epub
-    cover_image: https://zkytl.files.wordpress.com/2022/09/51l1vq6m2vl.jpg
+    cover_image: ./books/BSO/cover.jpg
+      #https://zkytl.files.wordpress.com/2022/09/51l1vq6m2vl.jpg
     css_filename: 'kindle.css'
     entry_points: 
       - https://zkytl.wordpress.com/2022/09/14/bso-chapter-prologue/

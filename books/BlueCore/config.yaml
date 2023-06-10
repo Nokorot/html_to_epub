@@ -1,0 +1,15 @@
+cache: './cache/html/BlueCore'
+callbacks: 'books.BlueCore.cbs.Callbacks'
+book:
+    title: "Blue Core" 
+    author: InadvisablyCompelled 
+    epub_filename: out/BlueCore.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-full/25082-blue-core.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/25082/blue-core/chapter/365477/day-2
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

@@ -1,0 +1,15 @@
+cache: './cache/html/ThePrimalHunter'
+callbacks: 'books.ThePrimalHunter.cbs.Callbacks'
+book:
+    title: "The Primal Hunter (Book 7+)" 
+    author: Zogarth 
+    epub_filename: out/ThePrimalHunter.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-full/36049-the-primal-hunter.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/36049/the-primal-hunter/chapter/557051/chapter-1-another-monday-morning
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

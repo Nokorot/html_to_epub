@@ -1,0 +1,15 @@
+cache: './cache/html/KittyCatKillSat'
+callbacks: 'books.KittyCatKillSat.cbs.Callbacks'
+book:
+    title: "Kitty Cat Kill Sat" 
+    author: argusthecat 
+    epub_filename: out/KittyCatKillSat.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-full/46113-kitty-cat-kill-sat.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/46113/kitty-cat-kill-sat/chapter/1199334/removal-notice
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

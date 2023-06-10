@@ -1,0 +1,15 @@
+cache: './cache/html/WeaponsOfMassDestruction'
+callbacks: 'books.WeaponsOfMassDestruction.cbs.Callbacks'
+book:
+    title: "Weapons of Mass Destruction [Anti-Hero LitRPG]" 
+    author: Cerim 
+    epub_filename: out/WeaponsOfMassDestruction.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/64916-weapons-of-mass-destruction-anti-hero-litrpg.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/64916/weapons-of-mass-destruction-anti-hero-litrpg/chapter/1121432/chapter-1
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

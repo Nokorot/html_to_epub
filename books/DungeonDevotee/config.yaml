@@ -1,0 +1,15 @@
+cache: './cache/html/DungeonDevotee'
+callbacks: 'books.DungeonDevotee.cbs.Callbacks'
+book:
+    title: "Dungeon Devotee" 
+    author: Nixia 
+    epub_filename: out/DungeonDevotee.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-full/51358-dungeon-devotee.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/51358/dungeon-devotee/chapter/844164/chapter-0-deadliest-day
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

@@ -1,0 +1,15 @@
+cache: './cache/html/EleknarsHeir'
+callbacks: 'books.EleknarsHeir.cbs.Callbacks'
+book:
+    title: "Eleknar's Heir" 
+    author: Chipper Panda 
+    epub_filename: out/EleknarsHeir.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/67877-eleknars-heir.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/67877/eleknars-heir/chapter/1198562/chapter-1-treys-last-day-on-earth
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

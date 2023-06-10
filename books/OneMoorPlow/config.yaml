@@ -1,0 +1,15 @@
+cache: './cache/html/OneMoorPlow'
+callbacks: 'books.OneMoorPlow.cbs.Callbacks'
+book:
+    title: "One Moo'r Plow [Minotaur farming LITRPG]" 
+    author: Exemplar 
+    epub_filename: out/OneMoorPlow.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/63474-beware-of-cow-minotaur-farming-litrpg.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/63474/one-moor-plow-minotaur-farming-litrpg/chapter/1090952/1-1-post-awakening-stress-disorder
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

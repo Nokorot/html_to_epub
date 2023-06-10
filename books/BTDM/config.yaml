@@ -3,13 +3,13 @@ callbacks: 'books.BTDM.cbs.Callbacks'
 book:
     title: Beneath The Dragoneye Moon
     author: Selkie
-    epub_filename: out/BTDM-Mar-02.epub
+    epub_filename: out/BTDM.epub
       # cover_image: 'https://www.royalroadcdn.com/public/covers-large/36299-beneath-the-dragoneye-moons.jpg'
-    cover_image: './books/BTDM/Book_7.jpg'
+      # cover_image: './books/BTDM/Book_7.jpg'
+    cover_image: https://www.royalroadcdn.com/public/volume-covers-large/36299-aabaonr0mhm-book-10.jpg?time=1681443855 
     css_filename: 'kindle.css'
-      # entry_point: 'https://www.royalroad.com/fiction/36299/beneath-the-dragoneye-moons/chapter/765885/dedication'
-    entry_point: 'https://www.royalroad.com/fiction/36299/beneath-the-dragoneye-moons/chapter/1110077/chapter-388-interlude-takatane-sakai-the-gladiator'
-
+    entry_point: 'https://www.royalroad.com/fiction/36299/beneath-the-dragoneye-moons/chapter/765885/dedication'
+      # entry_point: https://www.royalroad.com/fiction/36299/beneath-the-dragoneye-moons/chapter/1200876/chapter-411-a-yellow-and-black-plague-v
     include_images: True
 
     chapter:

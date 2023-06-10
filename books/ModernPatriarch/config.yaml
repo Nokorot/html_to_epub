@@ -1,0 +1,15 @@
+cache: './cache/html/ModernPatriarch'
+callbacks: 'books.ModernPatriarch.cbs.Callbacks'
+book:
+    title: "Modern Patriarch" 
+    author: Daoist Enigma 
+    epub_filename: out/ModernPatriarch.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/54068-modern-patriarch-book-2-is-live.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/54068/modern-patriarch-book-2-is-live/chapter/901993/1-patriarch-v-heaven
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

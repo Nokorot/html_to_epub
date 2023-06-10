@@ -1,3 +1,6 @@
 ebooklib
 tqdm
 pyyaml
+cssselect
+xmltodict
+ruamel.yaml

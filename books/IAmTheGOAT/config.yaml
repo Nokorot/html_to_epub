@@ -1,0 +1,15 @@
+cache: './cache/html/IAmTheGOAT'
+callbacks: 'books.IAmTheGOAT.cbs.Callbacks'
+book:
+    title: "I am the GOAT [A Demonic LitRPG]" 
+    author: Marc Mulero 
+    epub_filename: out/IAmTheGOAT.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/69018-i-am-the-goat-a-demonic-litrpg.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/69018/i-am-the-goat-a-demonic-litrpg/chapter/1226541/chapter-1-a-baaahd-day
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

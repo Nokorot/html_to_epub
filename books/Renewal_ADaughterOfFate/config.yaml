@@ -1,0 +1,15 @@
+cache: './cache/html/Renewal_ADaughterOfFate'
+callbacks: 'books.Renewal_ADaughterOfFate.cbs.Callbacks'
+book:
+    title: "Renewal: A Daughter of Fate" 
+    author: JaffaJessie (J.L Daniels) 
+    epub_filename: out/Renewal_ADaughterOfFate.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/58441-renewal-a-daughter-of-fate-villainesslitrpgcultivationotome.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/58441/renewal-a-daughter-of-fate-villainesslitrpgcultivationotome/chapter/1198109/cover-art-work
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

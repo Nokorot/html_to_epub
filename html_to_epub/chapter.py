@@ -85,6 +85,8 @@ class Chapter:
                 if self.config.book.include_images:
                     # TODO: Should down-scale imeages, to a more appropriate resolution
                     imgobj = self.book.add_image(img.get('src'))
+                    imgobj.add_reference(self)
+
                     img.set('src', imgobj.get_epub_src())
                 else:
                     img.drop_tree()

@@ -1,0 +1,15 @@
+cache: './cache/html/MonsterJousting'
+callbacks: 'books.MonsterJousting.cbs.Callbacks'
+book:
+    title: "Monster Jousting - A Mounted Taming LitRPG" 
+    author: Freeid 
+    epub_filename: out/MonsterJousting.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/68743-monster-jousting-a-mounted-taming-litrpg.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/68743/monster-jousting-a-mounted-taming-litrpg/chapter/1219679/chapter-1-otherworld-volunteering
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

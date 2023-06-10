@@ -1,0 +1,15 @@
+cache: './cache/html/TheNewWorld_TheDrownedEarth'
+callbacks: 'books.TheNewWorld_TheDrownedEarth.cbs.Callbacks'
+book:
+    title: "The New World: The Drowned Earth"
+    author: MyShelley 
+    epub_filename: out/TheNewWorld_TheDrownedEarth.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/67361-the-new-world-of-the-drowned-earth.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/67361/the-new-world-the-drowned-earth/chapter/1184409/the-new-world
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

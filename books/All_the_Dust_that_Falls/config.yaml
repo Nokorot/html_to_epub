@@ -4,7 +4,8 @@ book:
     title: All the Dust that Falls
     author: zaifyr
     epub_filename: out/All_the_Dust_that_Falls.epub
-    cover_image: https://www.royalroadcdn.com/public/covers-large/60292-all-the-dust-that-falls-a-roomba-isekai.jpg?time=1668461934
+      # cover_image: https://www.royalroadcdn.com/public/covers-large/60292-all-the-dust-that-falls-a-roomba-isekai.jpg?time=1668461934
+    cover_image: https://www.royalroadcdn.com/public/covers-large/60292-all-the-dust-that-falls-a-roomba-isekai.jpg?time=1682794878
     css_filename: 'kindle.css'
     entry_point: https://www.royalroad.com/fiction/60292/all-the-dust-that-falls-a-roomba-isekai-adventure/chapter/1027997/chapter-1-consequences-of-a-power-vacuum
     chapter:

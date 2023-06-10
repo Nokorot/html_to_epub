@@ -12,3 +12,4 @@ book:
         title_css_selector: 'div.fic-header h1.font-white'
         text_css_selector: 'div.chapter-inner'
         next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

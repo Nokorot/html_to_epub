@@ -1,4 +1,7 @@
 
+- RR: Short info from the fiction header page
+- Scip chapters
+
 - Force inclide THIS image
 - Template config files. For example, for Royal road.
 - Scale down images

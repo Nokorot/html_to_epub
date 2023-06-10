@@ -1,0 +1,15 @@
+cache: './cache/html/SagaOfEbonheim'
+callbacks: 'books.SagaOfEbonheim.cbs.Callbacks'
+book:
+    title: "Saga of Ebonheim [A Progression Fantasy LitRPG]" 
+    author: Zanafar 
+    epub_filename: out/SagaOfEbonheim.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/saga-of-ebonheim-litrpg-kingdom-building-progression.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/66102/saga-of-ebonheim-a-progression-fantasy-litrpg/chapter/1148548/chapter-1-fake-it-til-you-make-it
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

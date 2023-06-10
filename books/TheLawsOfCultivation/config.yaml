@@ -1,0 +1,15 @@
+cache: './cache/html/TheLawsOfCultivation'
+callbacks: 'books.TheLawsOfCultivation.cbs.Callbacks'
+book:
+    title: "The Laws of Cultivation: Qi = MC^2" 
+    author: KrazeKode 
+    epub_filename: out/TheLawsOfCultivation.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/46550-the-laws-of-cultivation-qi-mc2-free-for.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/46550/the-laws-of-cultivation-qi-mc2-free-for-one-more/chapter/829182/glossary
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

@@ -1,0 +1,15 @@
+cache: './cache/html/BarrierMage'
+callbacks: 'books.BarrierMage.cbs.Callbacks'
+book:
+    title: "Barrier Mage (A LitRPG Adventure)" 
+    author: Lyghtbringer 
+    epub_filename: out/BarrierMage.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/68916-barrier-mage-a-litrpg-adventure.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/68916/barrier-mage-a-litrpg-adventure/chapter/1223358/chapter-1-paradigm-shift
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

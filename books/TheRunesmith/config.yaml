@@ -1,0 +1,15 @@
+cache: './cache/html/TheRunesmith'
+callbacks: 'books.TheRunesmith.cbs.Callbacks'
+book:
+    title: "The Runesmith" 
+    author: Kuropon 
+    epub_filename: out/TheRunesmith.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-full/33844-the-runesmith.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/33844/the-runesmith/chapter/526587/glossary-of-terms
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

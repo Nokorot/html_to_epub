@@ -30,19 +30,19 @@ class Book:
 
         self.images = {}
         for (key, value) in config.book.images.items():
-            self.add_image(value, key)
+            img = self.add_image(value, key)
 
         with open(config.book.css_filename, 'r') as css:
             self.css = epub.EpubItem(uid='default', file_name="style/"+config.book.css_filename, media_type="text/css", content=css.read())
 
 
-    def add_image(self, url, ref=None):
+    def add_image(self, url, ref=None, ext="png"):
         if not ref:
             # TODO: This could be more clever
             # ref = "image_%u" % len(self.images)
             ref = hashlib.md5(url.encode('utf-8')).hexdigest()
         if not self.images.__contains__(ref):
-            self.images[ref] = Image(self.config, ref, url)
+            self.images[ref] = Image(self.config, ref, url, ext=ext)
 
         return self.images[ref];
 
@@ -105,7 +105,8 @@ class Book:
         if self.cover_img:
             print("Adding Conver: '%s'" % self.cover_img.ref)
             data = self.cover_img.load_file()
-            self.book.set_cover(self.cover_img.ref + self.cover_img.fileext, data)
+            if data != None: ## Returns None if it fails to download the image
+                self.book.set_cover(self.cover_img.ref + self.cover_img.fileext, data)
 
     '''
     Turn our TableOfContetns and Chapter objects into epub format. At this point you should have called
@@ -142,14 +143,21 @@ class Book:
         for i, (ref, img) in enumerate(self.images.items()):
             # TODO:3 At the moment I'm expecting ext as a part of key
             # print("Adding Image: '%s'" % img.url)
-            print("Adding Image: '%s' as '%s'" % (img.url, ref))
             data = img.load_file()
+            if data == None:
+                print("FAILED to download '%s', ref:'%s'. Referenced at:" % (img.url,ref))
+                for reference in img.references:
+                    print("     - '%s'", reference.url)
+                continue;
+
+            print("Adding Image: '%s' as '%s'" % (img.url, ref))
+
 
             # TODO: Need to fix the media type, though it seams to work fine also with png atm.
             img = epub.EpubImage(
                     uid         = 'image_%u' % (i),
-                    file_name   =  self.config.images_dir + ref + ".png",
-                    media_type  = 'image/jpeg',
+                    file_name   = img.get_epub_src(),
+                    media_type  = img.media_type(),
                     content     = data)
             self.book.add_item(img)
 

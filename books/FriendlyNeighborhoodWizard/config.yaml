@@ -1,0 +1,15 @@
+cache: './cache/html/FriendlyNeighborhoodWizard'
+callbacks: 'books.FriendlyNeighborhoodWizard.cbs.Callbacks'
+book:
+    title: "Friendly Neighborhood Wizard: A Cozy Fantasy" 
+    author: SmilingSatyr 
+    epub_filename: out/FriendlyNeighborhoodWizard.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/friendly-neighborhood-wizard-aadac9ujyxm.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/68809/friendly-neighborhood-wizard-a-cozy-fantasy/chapter/1220843/chapter-1-first-train-home
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

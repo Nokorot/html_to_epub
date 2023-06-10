@@ -1,0 +1,15 @@
+cache: './cache/html/AChemistsRiseInAnotherWorld'
+callbacks: 'books.AChemistsRiseInAnotherWorld.cbs.Callbacks'
+book:
+    title: "A Chemist's Rise in Another World [Kingdom Building LitRPG]" 
+    author: Traxler 
+    epub_filename: out/AChemistsRiseInAnotherWorld.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/a-chemists-rise-in-another-world-aacahmisbxm.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/69221/a-chemists-rise-in-another-world-kingdom-building/chapter/1231444/reborn-as-an-aristocrat-ages-13
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

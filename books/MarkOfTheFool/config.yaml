@@ -1,0 +1,15 @@
+cache: './cache/html/MarkOfTheFool'
+callbacks: 'books.MarkOfTheFool.cbs.Callbacks'
+book:
+    title: "Mark of the Fool" 
+    author: J.M. Clarke (U Juggernaut) 
+    epub_filename: out/MarkOfTheFool.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/41618-mark-of-the-fool.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/41618/mark-of-the-fool/chapter/653183/chapter-1-fools-and-inheritance
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

@@ -1,0 +1,15 @@
+cache: './cache/html/TheHumbleLifeOfASkillTrainer'
+callbacks: 'books.TheHumbleLifeOfASkillTrainer.cbs.Callbacks'
+book:
+    title: "The Humble Life of a Skill Trainer" 
+    author: alstonsleet 
+    epub_filename: out/TheHumbleLifeOfASkillTrainer.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-full/30737-the-humble-life-of-a-skill-trainer.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/30737/the-humble-life-of-a-skill-trainer/chapter/466281/chapter-1
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

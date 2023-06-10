@@ -1,0 +1,15 @@
+cache: './cache/html/MomoTheRipper'
+callbacks: 'books.MomoTheRipper.cbs.Callbacks'
+book:
+    title: "Momo The Ripper [Isekai/LitRPG]" 
+    author: villa1ny 
+    epub_filename: out/MomoTheRipper.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/60799-momo-the-ripper-isekailitrpg.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/60799/momo-the-ripper-isekailitrpg/chapter/1036939/1-the-newest-necromage
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

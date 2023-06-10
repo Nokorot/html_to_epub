@@ -1,0 +1,15 @@
+cache: './cache/html/Totem'
+callbacks: 'books.Totem.cbs.Callbacks'
+book:
+    title: "Totem - A Cultivation Isekai" 
+    author: HonourRae 
+    epub_filename: out/Totem.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/67496-totem.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/67496/totem-a-cultivation-isekai/chapter/1188659/prologue
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

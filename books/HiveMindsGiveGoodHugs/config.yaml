@@ -1,0 +1,15 @@
+cache: './cache/html/HiveMindsGiveGoodHugs'
+callbacks: 'books.HiveMindsGiveGoodHugs.cbs.Callbacks'
+book:
+    title: "Hive Minds Give Good Hugs" 
+    author: Thundamoo 
+    epub_filename: out/HiveMindsGiveGoodHugs.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-full/45048-hive-minds-give-good-hugs.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/45048/hive-minds-give-good-hugs/chapter/718679/1-far-away-from-home
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

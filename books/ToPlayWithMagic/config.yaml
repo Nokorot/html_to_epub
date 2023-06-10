@@ -1,0 +1,15 @@
+cache: './cache/html/ToPlayWithMagic'
+callbacks: 'books.ToPlayWithMagic.cbs.Callbacks'
+book:
+    title: "To Play With Magic" 
+    author: Draith 
+    epub_filename: out/ToPlayWithMagic.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-full/27495-to-play-with-magic.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/27495/to-play-with-magic/chapter/435850/000-prologue
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

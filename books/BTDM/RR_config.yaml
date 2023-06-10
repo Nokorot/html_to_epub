@@ -1,0 +1,24 @@
+rss_url: https://www.royalroad.com/fiction/syndication/36299
+lastTime: 2023-06-04T13:58:45+0000
+
+cache: ./cache/html/BTDM
+callbacks: books.BTDM.cbs.Callbacks
+book:
+    title: Beneath The Dragoneye Moon
+    author: Selkie
+    epub_filename: out/BTDM-%date.epub
+      # cover_image: 'https://www.royalroadcdn.com/public/covers-large/36299-beneath-the-dragoneye-moons.jpg'
+      # cover_image: './books/BTDM/Book_7.jpg'
+    cover_image: 
+        https://www.royalroadcdn.com/public/volume-covers-large/36299-aabaonr0mhm-book-10.jpg?time=1681443855
+    css_filename: kindle.css
+      # entry_point: 'https://www.royalroad.com/fiction/36299/beneath-the-dragoneye-moons/chapter/765885/dedication'
+    entry_point: 
+        https://www.royalroad.com/fiction/36299/beneath-the-dragoneye-moons/chapter/1200876/chapter-411-a-yellow-and-black-plague-v
+    include_images: true
+
+    chapter:
+        section_css_selector: div.fic-header h1.font-white
+        title_css_selector: div.fic-header h1.font-white
+        text_css_selector: div.chapter-inner
+        next_chapter_css_selector: div.col-md-offset-4 a.btn

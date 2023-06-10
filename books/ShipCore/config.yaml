@@ -1,0 +1,15 @@
+cache: './cache/html/ShipCore'
+callbacks: 'books.ShipCore.cbs.Callbacks'
+book:
+    title: "ShipCore" 
+    author: Erios909 
+    epub_filename: out/ShipCore.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/41463-shipcore.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/41463/shipcore/chapter/650528/a1-chapter-1-awakening
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

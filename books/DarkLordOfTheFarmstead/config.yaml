@@ -1,0 +1,15 @@
+cache: './cache/html/DarkLordOfTheFarmstead'
+callbacks: 'books.DarkLordOfTheFarmstead.cbs.Callbacks'
+book:
+    title: "Dark Lord of the Farmstead - A Slice-of-Life LitRPG" 
+    author: John Broadway 
+    epub_filename: out/DarkLordOfTheFarmstead.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/dark-lord-of-the-farmstead-a-slice-of-life-litrpg-75621.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/68630/dark-lord-of-the-farmstead-a-slice-of-life-litrpg/chapter/1216978/chapter-1-the-witch-lord-retires
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

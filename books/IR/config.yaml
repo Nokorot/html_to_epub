@@ -6,7 +6,8 @@ book:
     epub_filename: out/IR_5+.epub
     cover_image: ./books/IR/cover.png
     css_filename: 'kindle.css'
-    entry_point: 'https://www.royalroad.com/fiction/27325/infinite-realm-monsters-legends/chapter/823083/chapter-303-naha' 
+      # entry_point: 'https://www.royalroad.com/fiction/27325/infinite-realm-monsters-legends/chapter/823083/chapter-303-naha' 
+    entry_point: https://www.royalroad.com/fiction/chapter/1198519
     chapter:
         section_css_selector: 'div.fic-header h1.font-white'
         title_css_selector: 'div.fic-header h1.font-white'

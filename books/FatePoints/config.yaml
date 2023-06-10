@@ -1,0 +1,15 @@
+cache: './cache/html/FatePoints'
+callbacks: 'books.FatePoints.cbs.Callbacks'
+book:
+    title: "Fate Points" 
+    author: Allan G 
+    epub_filename: out/FatePoints.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-large/58682-fate-points.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/58682/fate-points/chapter/993200/chapter-1
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True

@@ -1,0 +1,15 @@
+cache: './cache/html/NeverDieTwice'
+callbacks: 'books.NeverDieTwice.cbs.Callbacks'
+book:
+    title: "Never Die Twice" 
+    author: Maxime J. Durand (Void Herald) 
+    epub_filename: out/NeverDieTwice.epub
+    cover_image: https://www.royalroadcdn.com/public/covers-full/32067-never-die-twice.jpg
+    css_filename: 'kindle.css'
+    entry_point: https://www.royalroad.com/fiction/32067/never-die-twice/chapter/488980/1-the-shopkeeper-is-your-friend
+    chapter:
+        section_css_selector: 'div.fic-header h1.font-white'
+        title_css_selector: 'div.fic-header h1.font-white'
+        text_css_selector: 'div.chapter-inner'
+        next_chapter_css_selector: 'div.col-md-offset-4 a.btn'
+    include_images: True
