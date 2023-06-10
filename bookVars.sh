@@ -1,5 +1,0 @@
-export       TITLE='"Dungeon Noble - Squire"'
-export  FOLDERNAME='DungeonNoble'
-export      AUTHOR='Irae153'
-export COVER_IMAGE='https://www.royalroadcdn.com/public/covers-large/dungeon-noble-squire-aaaa4vknixm.jpg'
-export ENTRY_POINT='https://www.royalroad.com/fiction/66448/dungeon-noble-squire/chapter/1155195/dn-1-ascension-day'

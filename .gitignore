@@ -2,4 +2,6 @@ cache/
 __pycache__/
 *.epub
 out
+*.log
 *.swp
+bookVars.sh
